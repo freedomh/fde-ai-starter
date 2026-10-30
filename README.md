@@ -59,7 +59,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\Stop-Local.ps1
 
 停止保留 MySQL 卷；重新运行 Start-Local.ps1 即可。修改源码后，启动脚本会重新构建。不要用 `down -v` 作为常规排错方法。
 
-infra/.env 在本机首次运行时随机生成，已被 Git 忽略。不要上传它或把真实用户数据带入课堂。已有 MySQL 卷不会因为改 .env 就自动更改账号密码。
+infra/.env 在本机首次运行时随机生成，已被 Git 忽略。Compose 名称带当前目录的短哈希，使同一电脑上的不同克隆副本使用独立数据卷；端口仍需避开占用。不要上传 .env 或把真实用户数据带入课堂。已有 MySQL 卷不会因为改 .env 就自动更改账号密码。
 
 端口冲突时，只修改自己副本 infra/.env 的 BACKEND_PORT/WEB_PORT/ADMIN_PORT；不要结束别人的服务。脚本最终打印的地址为准。完整系统准备见 [空电脑准备](docs/空电脑准备.md)。
 
