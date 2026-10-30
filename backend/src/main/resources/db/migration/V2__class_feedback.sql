@@ -1,0 +1,24 @@
+CREATE TABLE demo_student (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(40) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE demo_lesson (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    student_id BIGINT NOT NULL,
+    topic VARCHAR(100) NOT NULL,
+    performance VARCHAR(2000) NOT NULL,
+    homework VARCHAR(1000) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES demo_student(id)
+);
+CREATE TABLE demo_feedback (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    lesson_id BIGINT NOT NULL UNIQUE,
+    content VARCHAR(4000) NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    confirmed_at TIMESTAMP NULL,
+    FOREIGN KEY (lesson_id) REFERENCES demo_lesson(id)
+);
+INSERT INTO demo_student(name) VALUES ('小林（演示）'), ('小周（演示）');

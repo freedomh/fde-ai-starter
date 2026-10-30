@@ -1,6 +1,6 @@
 # AI 开发约定
 
-先读 README.md 与 docs/课程提示词.md。main 是无业务的技术骨架；本轮只做用户给出的需求。前端、管理端、Java 后端与 infra 同级，不复制其他产品数据、业务源码或凭据。
+先读 README.md、docs/需求与接口.md 与 docs/课程提示词.md。当前分支是课程反馈台演示成品；main 是无业务的技术骨架。本轮只做用户给出的需求。前端、管理端、Java 后端与 infra 同级，不复制其他产品数据、业务源码或凭据。
 
 沿用 Vue 3 + TypeScript、Java 17 + Spring Boot、MySQL、Redis 和 Docker Compose。所有请求走 /api，相同字段以前后端共同的接口文档为准；数据库变化新增 Flyway 迁移，保留旧数据。
 
