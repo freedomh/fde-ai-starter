@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: fde-ai-starter
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER:app}
+    password: ${DB_PASSWORD}
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: 6379
+      password: ${REDIS_PASSWORD}
+      connect-timeout: 1s
+      timeout: 1s
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: never
